@@ -19,51 +19,49 @@ body{
   padding-bottom:75px;
 }
 
+.hidden{display:none!important}
+
 button{
   border:0;
   cursor:pointer;
 }
 
-.hidden{
-  display:none!important;
-}
-
-/* LOGIN */
+/* AUTH */
 #authPage{
   min-height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   padding:20px;
-  background:linear-gradient(135deg,#111,#333);
+  background:linear-gradient(135deg,#111,#444);
 }
 
 .auth-box{
   width:100%;
-  max-width:400px;
-  background:white;
-  border-radius:20px;
+  max-width:390px;
+  background:#fff;
   padding:28px 22px;
-  box-shadow:0 10px 40px rgba(0,0,0,.3);
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,.3);
 }
 
 .logo{
   text-align:center;
-  font-size:34px;
+  font-size:32px;
   font-weight:bold;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
-.auth-sub{
+.subtitle{
   text-align:center;
   color:#777;
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
 
 .tabs{
   display:flex;
   gap:8px;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .tabs button{
@@ -82,37 +80,35 @@ button{
 .input{
   width:100%;
   padding:13px;
-  margin-bottom:12px;
   border:1px solid #ddd;
   border-radius:10px;
+  margin-bottom:12px;
   outline:none;
 }
 
 .main-btn{
   width:100%;
   padding:14px;
-  border-radius:11px;
+  border-radius:10px;
   background:#111;
-  color:white;
-  font-size:16px;
+  color:#fff;
   font-weight:bold;
+  font-size:16px;
 }
 
-/* APP */
-#app{
-  display:none;
-}
-
+/* HEADER */
 header{
   background:#111;
   color:white;
-  padding:18px;
+  padding:17px;
   position:sticky;
   top:0;
   z-index:10;
 }
 
 .header-row{
+  max-width:700px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -130,6 +126,7 @@ header{
   font-size:13px;
 }
 
+/* COMMON */
 .container{
   max-width:700px;
   margin:auto;
@@ -137,20 +134,19 @@ header{
 }
 
 .section-title{
+  font-size:23px;
   margin:10px 0 15px;
-  font-size:22px;
 }
 
 .hero{
   background:#111;
-  color:white;
+  color:#fff;
   border-radius:18px;
   padding:22px;
   margin-bottom:22px;
 }
 
 .hero h1{
-  font-size:26px;
   margin-bottom:8px;
 }
 
@@ -166,15 +162,15 @@ header{
 }
 
 .card{
-  background:white;
-  border-radius:16px;
+  background:#fff;
   padding:12px;
+  border-radius:16px;
   box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .card img{
   width:100%;
-  height:170px;
+  height:165px;
   object-fit:contain;
   border-radius:12px;
   background:#fafafa;
@@ -186,7 +182,7 @@ header{
 }
 
 .price{
-  font-size:19px;
+  font-size:20px;
   font-weight:bold;
   margin-bottom:10px;
 }
@@ -194,29 +190,29 @@ header{
 .buy{
   width:100%;
   padding:11px;
+  border-radius:9px;
   background:#111;
   color:white;
-  border-radius:9px;
   font-weight:bold;
 }
 
 /* DETAIL */
 .detail-box{
   background:white;
-  border-radius:18px;
   padding:18px;
+  border-radius:18px;
 }
 
 .detail-box img{
   width:100%;
-  max-height:330px;
+  height:320px;
   object-fit:contain;
   background:#fafafa;
   border-radius:14px;
 }
 
 .detail-price{
-  font-size:25px;
+  font-size:27px;
   font-weight:bold;
   margin:15px 0;
 }
@@ -225,25 +221,25 @@ header{
   display:flex;
   align-items:center;
   gap:18px;
-  margin:15px 0;
+  margin:18px 0;
 }
 
 .qty button{
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
   border-radius:10px;
   background:#eee;
-  font-size:20px;
+  font-size:22px;
 }
 
-.checkout-btn{
+.action-btn{
   width:100%;
   padding:14px;
-  border-radius:11px;
+  border-radius:10px;
   background:#111;
   color:white;
-  font-weight:bold;
   font-size:16px;
+  font-weight:bold;
 }
 
 /* CHECKOUT */
@@ -258,8 +254,16 @@ header{
 }
 
 textarea.input{
-  resize:none;
   height:90px;
+  resize:none;
+}
+
+.summary{
+  background:#f2f2f2;
+  padding:14px;
+  border-radius:10px;
+  margin:10px 0 15px;
+  line-height:1.7;
 }
 
 /* PAYMENT */
@@ -270,37 +274,38 @@ textarea.input{
   text-align:center;
 }
 
-.payment-box img{
-  width:230px;
-  height:230px;
+.qr{
+  width:240px;
+  height:240px;
   object-fit:contain;
-  margin:15px auto;
+  margin:18px auto;
   display:block;
-  border:1px solid #eee;
+  border:1px solid #ddd;
   border-radius:12px;
 }
 
-.order-total{
-  background:#f3f3f3;
+.payment-total{
+  background:#f2f2f2;
   padding:14px;
   border-radius:10px;
-  margin:15px 0;
+  font-size:18px;
   font-weight:bold;
+  margin:15px 0;
 }
 
 .note{
   color:#666;
   font-size:13px;
   line-height:1.5;
-  margin:12px 0;
+  margin:10px 0;
 }
 
-.confirm-btn{
+.confirm{
   width:100%;
   padding:14px;
+  border-radius:10px;
   background:#111;
   color:white;
-  border-radius:10px;
   font-weight:bold;
 }
 
@@ -316,9 +321,9 @@ textarea.input{
 .status{
   display:inline-block;
   margin-top:8px;
+  background:#eee;
   padding:6px 10px;
   border-radius:20px;
-  background:#eee;
   font-size:12px;
 }
 
@@ -326,53 +331,49 @@ textarea.input{
 .balance-card{
   background:#111;
   color:white;
-  border-radius:20px;
   padding:25px;
-  margin-bottom:18px;
+  border-radius:20px;
+  margin-bottom:16px;
 }
 
 .balance-number{
-  font-size:35px;
-  margin-top:8px;
+  font-size:36px;
+  margin-top:7px;
 }
 
 .info-card{
   background:white;
-  border-radius:17px;
   padding:18px;
-  margin-bottom:15px;
-}
-
-.info-card h3{
-  margin-bottom:8px;
+  border-radius:17px;
+  margin-bottom:14px;
 }
 
 /* PROFILE */
 .profile-card{
   background:white;
-  border-radius:18px;
   padding:22px;
+  border-radius:18px;
 }
 
-.profile-avatar{
+.avatar{
   width:75px;
   height:75px;
-  border-radius:50%;
   background:#111;
   color:white;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:30px;
-  margin-bottom:15px;
+  margin-bottom:14px;
 }
 
 .logout{
   width:100%;
-  margin-top:18px;
   padding:13px;
   border-radius:10px;
   background:#eee;
+  margin-top:18px;
   font-weight:bold;
 }
 
@@ -383,7 +384,7 @@ textarea.input{
   left:0;
   right:0;
   height:65px;
-  background:white;
+  background:#fff;
   border-top:1px solid #ddd;
   display:flex;
   justify-content:space-around;
@@ -395,7 +396,6 @@ textarea.input{
   background:none;
   color:#777;
   font-size:12px;
-  text-align:center;
 }
 
 .nav-btn span{
@@ -410,18 +410,13 @@ textarea.input{
 }
 
 .back{
-  margin-bottom:15px;
   background:#eee;
   padding:9px 13px;
   border-radius:9px;
+  margin-bottom:15px;
 }
 
-/* MOBILE */
 @media(max-width:500px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
   .card img{
     height:145px;
   }
@@ -431,21 +426,30 @@ textarea.input{
 
 <body>
 
-<!-- ================= AUTH PAGE ================= -->
+<!-- ================= LOGIN / REGISTER ================= -->
 
 <div id="authPage">
 
   <div class="auth-box">
 
     <div class="logo">Oreo Store</div>
-    <div class="auth-sub">Welcome to our store</div>
+    <div class="subtitle">Welcome to our store</div>
 
     <div class="tabs">
-      <button id="loginTab" class="active" onclick="showLogin()">Login</button>
-      <button id="registerTab" onclick="showRegister()">Register</button>
+      <button id="loginTab"
+              class="active"
+              onclick="showLogin()">
+        Login
+      </button>
+
+      <button id="registerTab"
+              onclick="showRegister()">
+        Register
+      </button>
     </div>
 
     <!-- LOGIN -->
+
     <div id="loginForm">
 
       <input
@@ -462,13 +466,16 @@ textarea.input{
         placeholder="Password"
       >
 
-      <button class="main-btn" onclick="loginUser()">
+      <button
+        class="main-btn"
+        onclick="loginUser()">
         Login
       </button>
 
     </div>
 
     <!-- REGISTER -->
+
     <div id="registerForm" class="hidden">
 
       <input
@@ -492,7 +499,9 @@ textarea.input{
         placeholder="Password"
       >
 
-      <button class="main-btn" onclick="registerUser()">
+      <button
+        class="main-btn"
+        onclick="registerUser()">
         Create Account
       </button>
 
@@ -503,7 +512,7 @@ textarea.input{
 </div>
 
 
-<!-- ================= APP ================= -->
+<!-- ================= MAIN APP ================= -->
 
 <div id="app">
 
@@ -524,7 +533,7 @@ textarea.input{
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
 <section id="homePage" class="page">
 
@@ -535,7 +544,7 @@ textarea.input{
       <h1>Welcome 👋</h1>
 
       <p>
-        Discover our products and place your order easily.
+        Choose a product and place your order.
       </p>
 
     </div>
@@ -544,20 +553,25 @@ textarea.input{
       Products
     </h2>
 
-    <div id="productGrid" class="products"></div>
+    <div
+      id="productGrid"
+      class="products">
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- ================= PRODUCT DETAIL ================= -->
+<!-- PRODUCT DETAIL -->
 
 <section id="productPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('homePage')">
+    <button
+      class="back"
+      onclick="showPage('homePage')">
       ← Back
     </button>
 
@@ -568,19 +582,21 @@ textarea.input{
 </section>
 
 
-<!-- ================= CHECKOUT ================= -->
+<!-- CHECKOUT -->
 
 <section id="checkoutPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('productPage')">
+    <button
+      class="back"
+      onclick="showPage('productPage')">
       ← Back
     </button>
 
     <div class="form-box">
 
-      <h2>Checkout</h2>
+      <h2>Place Order</h2>
 
       <input
         id="customerName"
@@ -598,13 +614,18 @@ textarea.input{
       <textarea
         id="customerAddress"
         class="input"
-        placeholder="Delivery Address"
-      ></textarea>
+        placeholder="Delivery Address">
+      </textarea>
 
-      <div id="checkoutSummary"></div>
+      <div
+        id="checkoutSummary"
+        class="summary">
+      </div>
 
-      <button class="checkout-btn" onclick="openPayment()">
-        Continue to Payment
+      <button
+        class="action-btn"
+        onclick="openPayment()">
+        Place Order
       </button>
 
     </div>
@@ -614,13 +635,15 @@ textarea.input{
 </section>
 
 
-<!-- ================= PAYMENT ================= -->
+<!-- PAYMENT / QR -->
 
 <section id="paymentPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('checkoutPage')">
+    <button
+      class="back"
+      onclick="showPage('checkoutPage')">
       ← Back
     </button>
 
@@ -629,30 +652,30 @@ textarea.input{
       <h2>Payment</h2>
 
       <p class="note">
-        Scan the QR code below to pay for your product order.
+        Scan the QR code to pay for your product order.
       </p>
 
-      <!--
-        REPLACE YOUR_QR_IMAGE_LINK
-        WITH YOUR OWN QR IMAGE RAW LINK.
-      -->
+      <!-- YOUR QR CODE -->
 
       <img
-        src="YOUR_QR_IMAGE_LINK"
+        class="qr"
+        src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-124821.png"
         alt="Payment QR Code"
       >
 
-      <div id="paymentTotal" class="order-total"></div>
+      <div
+        id="paymentTotal"
+        class="payment-total">
+      </div>
 
       <p class="note">
-        After making the payment, submit your order below.
-        Payment verification is handled separately.
+        Please make the payment for the order amount
+        shown above.
       </p>
 
       <button
-        class="confirm-btn"
-        onclick="placeOrder()"
-      >
+        class="confirm"
+        onclick="placeOrder()">
         I Have Paid — Place Order
       </button>
 
@@ -663,7 +686,7 @@ textarea.input{
 </section>
 
 
-<!-- ================= ORDERS ================= -->
+<!-- ORDERS -->
 
 <section id="ordersPage" class="page hidden">
 
@@ -680,7 +703,7 @@ textarea.input{
 </section>
 
 
-<!-- ================= BALANCE ================= -->
+<!-- BALANCE -->
 
 <section id="balancePage" class="page hidden">
 
@@ -692,7 +715,9 @@ textarea.input{
 
     <div class="balance-card">
 
-      <div>Available Balance</div>
+      <div>
+        Available Balance
+      </div>
 
       <div class="balance-number">
         ₹<span id="balanceAmount">0</span>
@@ -702,22 +727,21 @@ textarea.input{
 
     <div class="info-card">
 
-      <h3>Order Payments</h3>
+      <h3>Payment Information</h3>
 
       <p class="note">
-        Payments on this website are for product orders only.
+        Product payments are made for individual
+        orders through the payment section.
       </p>
 
     </div>
-
-    <div id="transactions"></div>
 
   </div>
 
 </section>
 
 
-<!-- ================= PROFILE ================= -->
+<!-- PROFILE -->
 
 <section id="profilePage" class="page hidden">
 
@@ -729,7 +753,7 @@ textarea.input{
 
     <div class="profile-card">
 
-      <div class="profile-avatar">
+      <div class="avatar">
         👤
       </div>
 
@@ -737,14 +761,14 @@ textarea.input{
         User
       </h2>
 
-      <p id="profileEmail" class="note">
-        user@email.com
+      <p
+        id="profileEmail"
+        class="note">
       </p>
 
       <button
         class="logout"
-        onclick="logoutUser()"
-      >
+        onclick="logoutUser()">
         Logout
       </button>
 
@@ -755,40 +779,44 @@ textarea.input{
 </section>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- BOTTOM NAV -->
 
 <div class="bottom-nav">
 
   <button
     class="nav-btn active"
-    onclick="showPage('homePage')"
-  >
+    onclick="showPage('homePage')">
+
     <span>🏠</span>
     Home
+
   </button>
 
   <button
     class="nav-btn"
-    onclick="showPage('ordersPage');loadOrders()"
-  >
+    onclick="showPage('ordersPage');loadOrders()">
+
     <span>📦</span>
     Orders
+
   </button>
 
   <button
     class="nav-btn"
-    onclick="showPage('balancePage');loadBalance()"
-  >
+    onclick="showPage('balancePage');loadBalance()">
+
     <span>💰</span>
     Balance
+
   </button>
 
   <button
     class="nav-btn"
-    onclick="showPage('profilePage');loadProfile()"
-  >
+    onclick="showPage('profilePage');loadProfile()">
+
     <span>👤</span>
     Profile
+
   </button>
 
 </div>
@@ -798,7 +826,7 @@ textarea.input{
 
 <script>
 
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCT DATA ================= */
 
 const products = [
 
@@ -828,25 +856,28 @@ const products = [
 
 ];
 
-
-let selectedProduct = null;
-let quantity = 1;
+let selectedProduct=null;
+let quantity=1;
 
 
 /* ================= AUTH ================= */
 
 function showLogin(){
 
-  document.getElementById("loginForm")
+  document
+    .getElementById("loginForm")
     .classList.remove("hidden");
 
-  document.getElementById("registerForm")
+  document
+    .getElementById("registerForm")
     .classList.add("hidden");
 
-  document.getElementById("loginTab")
+  document
+    .getElementById("loginTab")
     .classList.add("active");
 
-  document.getElementById("registerTab")
+  document
+    .getElementById("registerTab")
     .classList.remove("active");
 
 }
@@ -854,16 +885,20 @@ function showLogin(){
 
 function showRegister(){
 
-  document.getElementById("loginForm")
+  document
+    .getElementById("loginForm")
     .classList.add("hidden");
 
-  document.getElementById("registerForm")
+  document
+    .getElementById("registerForm")
     .classList.remove("hidden");
 
-  document.getElementById("loginTab")
+  document
+    .getElementById("loginTab")
     .classList.remove("active");
 
-  document.getElementById("registerTab")
+  document
+    .getElementById("registerTab")
     .classList.add("active");
 
 }
@@ -896,7 +931,7 @@ function registerUser(){
     })
   );
 
-  alert("Registration successful. Please login.");
+  alert("Registration successful.");
 
   showLogin();
 
@@ -912,19 +947,21 @@ function loginUser(){
     document.getElementById("loginPassword").value;
 
   const user =
-    JSON.parse(localStorage.getItem("oreoUser"));
+    JSON.parse(
+      localStorage.getItem("oreoUser")
+    );
 
   if(!user){
 
-    alert("No account found. Please register first.");
+    alert("Please register first.");
     showRegister();
     return;
 
   }
 
   if(
-    email === user.email &&
-    password === user.password
+    email===user.email &&
+    password===user.password
   ){
 
     localStorage.setItem(
@@ -947,8 +984,11 @@ function logoutUser(){
 
   localStorage.removeItem("oreoLoggedIn");
 
-  document.getElementById("app").style.display="none";
-  document.getElementById("authPage").style.display="flex";
+  document.getElementById("app")
+    .style.display="none";
+
+  document.getElementById("authPage")
+    .style.display="flex";
 
 }
 
@@ -957,25 +997,15 @@ function logoutUser(){
 
 function openApp(){
 
-  document.getElementById("authPage").style.display="none";
-  document.getElementById("app").style.display="block";
+  document.getElementById("authPage")
+    .style.display="none";
+
+  document.getElementById("app")
+    .style.display="block";
 
   renderProducts();
   updateBalance();
   loadProfile();
-
-}
-
-
-function checkLogin(){
-
-  if(
-    localStorage.getItem("oreoLoggedIn")==="true"
-  ){
-
-    openApp();
-
-  }
 
 }
 
@@ -1000,7 +1030,9 @@ function renderProducts(){
           alt="${product.name}"
         >
 
-        <h3>${product.name}</h3>
+        <h3>
+          ${product.name}
+        </h3>
 
         <div class="price">
           ₹${product.price}
@@ -1008,8 +1040,7 @@ function renderProducts(){
 
         <button
           class="buy"
-          onclick="openProduct(${index})"
-        >
+          onclick="openProduct(${index})">
           Buy Now
         </button>
 
@@ -1022,58 +1053,66 @@ function renderProducts(){
 }
 
 
+/* ================= PRODUCT DETAIL ================= */
+
 function openProduct(index){
 
-  selectedProduct = products[index];
-  quantity = 1;
+  selectedProduct=products[index];
+  quantity=1;
 
-  document.getElementById("productDetail").innerHTML = `
+  document.getElementById("productDetail")
+    .innerHTML=`
 
-    <div class="detail-box">
+      <div class="detail-box">
 
-      <img
-        src="${selectedProduct.img}"
-        alt="${selectedProduct.name}"
-      >
+        <img
+          src="${selectedProduct.img}"
+          alt="${selectedProduct.name}"
+        >
 
-      <h2 style="margin-top:15px;">
-        ${selectedProduct.name}
-      </h2>
+        <h2 style="margin-top:15px;">
+          ${selectedProduct.name}
+        </h2>
 
-      <div class="detail-price">
-        ₹${selectedProduct.price}
-      </div>
+        <div class="detail-price">
+          ₹${selectedProduct.price}
+        </div>
 
-      <p class="note">
-        Genuine product order.
-      </p>
+        <p class="note">
+          Product price: ₹${selectedProduct.price}
+        </p>
 
-      <div class="qty">
+        <div class="qty">
 
-        <button onclick="changeQty(-1)">
-          −
+          <button onclick="changeQty(-1)">
+            −
+          </button>
+
+          <strong id="qtyValue">
+            1
+          </strong>
+
+          <button onclick="changeQty(1)">
+            +
+          </button>
+
+        </div>
+
+        <div
+          id="detailTotal"
+          class="summary">
+          Total: ₹${selectedProduct.price}
+        </div>
+
+        <button
+          class="action-btn"
+          onclick="goCheckout()">
+          Buy Now
         </button>
 
-        <strong id="qtyValue">
-          1
-        </strong>
-
-        <button onclick="changeQty(1)">
-          +
-        </button>
-
       </div>
 
-      <button
-        class="checkout-btn"
-        onclick="goCheckout()"
-      >
-        Buy Now
-      </button>
-
-    </div>
-
-  `;
+    `;
 
   showPage("productPage");
 
@@ -1084,12 +1123,17 @@ function changeQty(change){
 
   quantity += change;
 
-  if(quantity < 1){
-    quantity = 1;
+  if(quantity<1){
+    quantity=1;
   }
 
   document.getElementById("qtyValue")
-    .innerText = quantity;
+    .innerText=quantity;
+
+  document.getElementById("detailTotal")
+    .innerText=
+      "Total: ₹"+
+      (selectedProduct.price*quantity);
 
 }
 
@@ -1099,21 +1143,28 @@ function changeQty(change){
 function goCheckout(){
 
   const total =
-    selectedProduct.price * quantity;
+    selectedProduct.price*quantity;
 
   document.getElementById("checkoutSummary")
-    .innerHTML = `
+    .innerHTML=`
 
-      <div class="order-total">
-
+      <strong>
         ${selectedProduct.name}
-        × ${quantity}
+      </strong>
 
-        <br><br>
+      <br>
 
+      Quantity: ${quantity}
+
+      <br>
+
+      Price: ₹${selectedProduct.price}
+
+      <br>
+
+      <strong>
         Total: ₹${total}
-
-      </div>
+      </strong>
 
     `;
 
@@ -1122,36 +1173,42 @@ function goCheckout(){
 }
 
 
+/* ================= PAYMENT ================= */
+
 function openPayment(){
 
   const name =
-    document.getElementById("customerName").value.trim();
+    document.getElementById("customerName")
+      .value.trim();
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
+    document.getElementById("customerPhone")
+      .value.trim();
 
   const address =
-    document.getElementById("customerAddress").value.trim();
+    document.getElementById("customerAddress")
+      .value.trim();
 
   if(!name || !phone || !address){
 
-    alert("Please fill your delivery details.");
+    alert("Please fill all delivery details.");
     return;
 
   }
 
   const total =
-    selectedProduct.price * quantity;
+    selectedProduct.price*quantity;
 
   document.getElementById("paymentTotal")
-    .innerHTML = `
+    .innerHTML=`
 
       ${selectedProduct.name}
+
       × ${quantity}
 
-      <br>
+      <br><br>
 
-      Total Payable: ₹${total}
+      Payable Amount: ₹${total}
 
     `;
 
@@ -1160,58 +1217,52 @@ function openPayment(){
 }
 
 
-/* ================= ORDERS ================= */
+/* ================= PLACE ORDER ================= */
 
 function placeOrder(){
 
   const name =
-    document.getElementById("customerName").value.trim();
+    document.getElementById("customerName")
+      .value.trim();
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
+    document.getElementById("customerPhone")
+      .value.trim();
 
   const address =
-    document.getElementById("customerAddress").value.trim();
+    document.getElementById("customerAddress")
+      .value.trim();
 
   const total =
-    selectedProduct.price * quantity;
+    selectedProduct.price*quantity;
 
-  const order = {
+  const order={
 
-    id:
-      "ORD" +
-      Date.now(),
+    id:"ORD"+Date.now(),
 
-    product:
-      selectedProduct.name,
+    product:selectedProduct.name,
 
-    quantity:
-      quantity,
+    quantity:quantity,
 
-    total:
-      total,
+    price:selectedProduct.price,
 
-    name:
-      name,
+    total:total,
 
-    phone:
-      phone,
+    name:name,
 
-    address:
-      address,
+    phone:phone,
 
-    status:
-      "Payment submitted",
+    address:address,
 
-    date:
-      new Date().toLocaleString()
+    status:"Payment submitted",
+
+    date:new Date().toLocaleString()
 
   };
 
-
-  const orders =
+  const orders=
     JSON.parse(
-      localStorage.getItem("oreoOrders") || "[]"
+      localStorage.getItem("oreoOrders")||"[]"
     );
 
   orders.unshift(order);
@@ -1221,18 +1272,19 @@ function placeOrder(){
     JSON.stringify(orders)
   );
 
-  alert(
-    "Order submitted successfully."
-  );
+  alert("Order submitted successfully.");
 
-  selectedProduct = null;
-  quantity = 1;
+  selectedProduct=null;
+  quantity=1;
 
   showPage("ordersPage");
+
   loadOrders();
 
 }
 
+
+/* ================= ORDERS ================= */
 
 function loadOrders(){
 
@@ -1241,12 +1293,12 @@ function loadOrders(){
 
   const orders =
     JSON.parse(
-      localStorage.getItem("oreoOrders") || "[]"
+      localStorage.getItem("oreoOrders")||"[]"
     );
 
-  if(orders.length === 0){
+  if(orders.length===0){
 
-    list.innerHTML = `
+    list.innerHTML=`
 
       <div class="info-card">
         No orders yet.
@@ -1266,10 +1318,16 @@ function loadOrders(){
 
       <div class="order-card">
 
-        <h3>${order.product}</h3>
+        <h3>
+          ${order.product}
+        </h3>
 
         <p>
           Quantity: ${order.quantity}
+        </p>
+
+        <p>
+          Price: ₹${order.price}
         </p>
 
         <p>
@@ -1282,38 +1340,19 @@ function loadOrders(){
 
         <span class="status">
           ${order.status}
-        </span>
+        </span>    `;
 
-      </div>
-
-    `;
-
-  });
-
-}
-
+  }
 
 /* ================= BALANCE ================= */
 
-function getBalance(){
-
-  return Number(
-    localStorage.getItem("oreoBalance") || "0"
-  );
-
-}
-
-
 function updateBalance(){
 
-  const balance =
-    getBalance();
-
   document.getElementById("miniBalance")
-    .innerText = balance;
+    .innerText="0";
 
   document.getElementById("balanceAmount")
-    .innerText = balance;
+    .innerText="0";
 
 }
 
@@ -1321,25 +1360,6 @@ function updateBalance(){
 function loadBalance(){
 
   updateBalance();
-
-  const transactions =
-    document.getElementById("transactions");
-
-  transactions.innerHTML = `
-
-    <div class="info-card">
-
-      <h3>Account Information</h3>
-
-      <p class="note">
-        Your balance display is for account/store
-        information. Product payments are made
-        directly for orders.
-      </p>
-
-    </div>
-
-  `;
 
 }
 
@@ -1349,4 +1369,8 @@ function loadBalance(){
 function loadProfile(){
 
   const user =
-    JSON.pa
+    JSON.parse(
+      localStorage.getItem("oreoUser")
+    );
+
+  if(!user) ret. 
