@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oreo Demo Store</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f5f7fb;color:#172033}
+.app{max-width:480px;margin:auto;min-height:100vh;background:#f7f8fc;padding-bottom:78px}
+header{padding:18px 18px 12px;background:#fff;position:sticky;top:0;z-index:5;border-bottom:1px solid #edf0f5}
+.brand{font-weight:900;font-size:23px;letter-spacing:.5px;color:#174a9c}.sub{font-size:12px;color:#7b8495;margin-top:3px}
+.banner{margin:14px 16px;border-radius:18px;padding:22px;color:white;background:linear-gradient(135deg,#174a9c,#4d82d8);box-shadow:0 10px 25px #174a9c22}
+.banner h1{margin:0 0 7px;font-size:25px}.banner p{margin:0;opacity:.9;font-size:13px}
+.notice{margin:0 16px 14px;background:#fff;border-radius:14px;padding:13px 15px;font-size:12px;border:1px solid #edf0f5}
+.tabs{display:flex;gap:8px;padding:0 16px 12px}.tab{border:0;padding:9px 14px;border-radius:20px;background:#e9edf5;color:#667085}.tab.active{background:#174a9c;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}
+.card{background:#fff;border-radius:17px;padding:14px;border:1px solid #edf0f5;box-shadow:0 5px 18px #17203308}
+.pic{height:125px;border-radius:13px;background:linear-gradient(135deg,#eaf1ff,#d8e6ff);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;color:#174a9c;margin-bottom:10px}
+.card h3{font-size:14px;margin:0 0 5px}.price{font-weight:800;font-size:16px}.muted{font-size:11px;color:#81899a}
+.btn{width:100%;border:0;border-radius:11px;padding:11px;margin-top:10px;background:#174a9c;color:#fff;font-weight:700;cursor:pointer}
+section{display:none}.show{display:block}
+.form{padding:22px 18px}.input{width:100%;padding:13px;border:1px solid #dfe4ec;border-radius:11px;margin:7px 0;background:#fff}.link{color:#174a9c;font-weight:700;cursor:pointer;font-size:13px}
+.balance{margin:16px;background:#174a9c;color:#fff;border-radius:18px;padding:20px}.balance small{opacity:.8}.balance strong{font-size:29px;display:block;margin-top:5px}
+.order{margin:10px 16px;background:#fff;border-radius:14px;padding:14px;border:1px solid #edf0f5}.status{float:right;font-size:11px;padding:5px 8px;border-radius:12px;background:#e9f7ee;color:#23864a}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:68px;background:#fff;border-top:1px solid #e8ebf0;display:flex;justify-content:space-around;z-index:10}
+nav button{border:0;background:none;color:#8991a0;font-size:11px}.navactive{color:#174a9c!important;font-weight:800}
+.admin-note{margin:16px;padding:14px;background:#fff4df;border:1px solid #f1d39b;border-radius:13px;font-size:12px}
+.empty{text-align:center;color:#8a92a2;padding:30px}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand">OREO DEMO STORE</div><div class="sub">Cookie products • Demo storefront</div></header>
+
+<section id="home" class="show">
+<div class="banner"><h1>Welcome 👋</h1><p>Explore products and place a demo order. No real payments are collected.</p></div>
+<div class="notice">📢 <b>Notice:</b> This is a test/demo storefront. Prices and orders are for demonstration only.</div>
+<div class="tabs"><button class="tab active">Products</button><button class="tab">Offers</button></div>
+<div id="products" class="grid"></div>
+</section>
+
+<section id="login">
+<div class="form"><h2>Login</h2><p class="muted">Demo account: create one from Register.</p>
+<input id="loginEmail" class="input" placeholder="Email">
+<input id="loginPass" class="input" type="password" placeholder="Password">
+<button class="btn" onclick="login()">Login</button><p class="link" onclick="show('register')">Create account</p></div>
+</section>
+
+<section id="register">
+<div class="form"><h2>Create account</h2>
+<input id="regName" class="input" placeholder="Full name">
+<input id="regEmail" class="input" placeholder="Email">
+<input id="regPhone" class="input" placeholder="Phone (optional)">
+<input id="regPass" class="input" type="password" placeholder="Password">
+<button class="btn" onclick="register()">Register</button><p class="link" onclick="show('login')">Already have an account?</p></div>
+</section>
+
+<section id="orders"><h2 style="padding:18px 16px 5px">My Orders</h2><div id="ordersList"></div></section>
+
+<section id="profile">
+<div class="balance"><small>Demo wallet balance</small><strong>₹0.00</strong><span style="font-size:11px">No recharge or investment feature</span></div>
+<div class="card" style="margin:16px"><h3>Profile</h3><div id="profileInfo" class="muted">Not logged in</div><button class="btn" onclick="show('login')">Login / Register</button></div>
+<div class="admin-note">🔒 Admin functions are intentionally kept separate. This demo has no real-money payment, withdrawal, investment, or referral-commission system.</div>
+</section>
+
+<nav>
+<button id="n-home" class="navactive" onclick="show('home')">⌂<br>Home</button>
+<button id="n-orders" onclick="show('orders')">▣<br>Orders</button>
+<button id="n-profile" onclick="show('profile')">◉<br>Profile</button>
+</nav>
+</div>
+
+<script>
+const products=[
+ {id:1,name:"Classic Cookie Pack",price:60,tag:"Original"},
+ {id:2,name:"Chocolate Cookie Pack",price:80,tag:"Chocolate"},
+ {id:3,name:"Family Cookie Box",price:150,tag:"Family"},
+ {id:4,name:"Mini Cookie Pack",price:35,tag:"Mini"}
+];
+let user=JSON.parse(localStorage.getItem("demoUser")||"null");
+let orders=JSON.parse(localStorage.getItem("demoOrders")||"[]");
+
+function renderProducts(){
+ document.getElementById("products").innerHTML=products.map(p=>`
+ <div class="card"><div class="pic">OREO</div><h3>${p.name}</h3><div class="muted">${p.tag} • Demo product</div>
+ <div class="price">₹${p.price}</div><button class="btn" onclick="buy(${p.id})">Add / Buy</button></div>`).join("");
+}
+function show(id){
+ document.querySelectorAll("section").forEach(s=>s.classList.remove("show"));
+ document.getElementById(id).classList.add("show");
+ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("navactive"));
+ if(id==="home")document.getElementById("n-home").classList.add("navactive");
+ if(id==="orders")document.getElementById("n-orders").classList.add("navactive");
+ if(id==="profile")document.getElementById("n-profile").classList.add("navactive");
+ if(id==="orders")renderOrders();
+ if(id==="profile")renderProfile();
+}
+function register(){
+ const name=regName.value.trim(),email=regEmail.value.trim(),pass=regPass.value;
+ if(!name||!email||!pass)return alert("Please fill name, email and password.");
+ user={name,email,phone:regPhone.value.trim(),pass}; localStorage.setItem("demoUser",JSON.stringify(user));
+ alert("Demo account created."); show("profile");
+}
+function login(){
+ const email=loginEmail.value.trim(),pass=loginPass.value;
+ if(!user||user.email!==email||user.pass!==pass)return alert("Demo login failed. Register first or use the same details.");
+ alert("Logged in."); show("profile");
+}
+function buy(id){
+ if(!user){alert("Please register/login first.");show("register");return;}
+ const p=products.find(x=>x.id===id);
+ orders.unshift({id:Date.now(),product:p.name,total:p.price,status:"Demo Order",date:new Date().toLocaleString()});
+ localStorage.setItem("demoOrders",JSON.stringify(orders));
+ alert("Demo order created. No payment was taken.");
+ show("orders");
+}
+function renderOrders(){
+ const el=document.getElementById("ordersList");
+ el.innerHTML=orders.length?orders.map(o=>`<div class="order"><span class="status">${o.status}</span><b>${o.product}</b><br><span class="muted">Order #${o.id}<br>${o.date}</span><div style="margin-top:8px;font-weight:800">₹${o.total}</div></div>`).join(""):'<div class="empty">No demo orders yet.</div>';
+}
+function renderProfile(){
+ document.getElementById("profileInfo").innerHTML=user?`<b>${user.name}</b><br>${user.email}<br>${user.phone||"No phone added"}`:"Not logged in";
+}
+renderProducts();renderOrders();renderProfile();
+</script>
+</body>
+</html>
