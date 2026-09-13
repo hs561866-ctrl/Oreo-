@@ -3,856 +3,1350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oreo Store Demo</title>
+<title>Oreo Store</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f4f4f4;
- color:#222;
-}
-header{
- background:#111;
- color:white;
- padding:18px;
- text-align:center;
-}
-header h1{margin:0;font-size:25px}
-header p{margin:6px 0 0;color:#ccc}
-
-.page{
- padding-bottom:75px;
- max-width:650px;
- margin:auto;
-}
-
-.container{padding:16px}
-.hidden{display:none}
-
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:14px;
-}
-
-.card{
- background:white;
- border-radius:15px;
- padding:10px;
- box-shadow:0 2px 10px #ddd;
-}
-
-.card img{
- width:100%;
- height:160px;
- object-fit:cover;
- border-radius:11px;
-}
-
-.card h3{
- margin:9px 0 5px;
- font-size:16px;
-}
-
-.price{
- font-size:18px;
- font-weight:bold;
- margin:7px 0 10px;
+  background:#f5f5f5;
+  color:#222;
+  padding-bottom:75px;
 }
 
 button{
- border:0;
- border-radius:9px;
- padding:11px 14px;
- background:#111;
- color:white;
- font-weight:bold;
- cursor:pointer;
+  border:0;
+  cursor:pointer;
 }
 
-.buy{width:100%}
-
-.back{
- background:#555;
- margin-bottom:15px;
+.hidden{
+  display:none!important;
 }
 
-.detail{
- background:white;
- padding:15px;
- border-radius:15px;
- box-shadow:0 2px 10px #ddd;
+/* LOGIN */
+#authPage{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:linear-gradient(135deg,#111,#333);
 }
 
-.detail img{
- width:100%;
- max-height:350px;
- object-fit:contain;
- border-radius:12px;
+.auth-box{
+  width:100%;
+  max-width:400px;
+  background:white;
+  border-radius:20px;
+  padding:28px 22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.logo{
+  text-align:center;
+  font-size:34px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.auth-sub{
+  text-align:center;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.tabs button{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  background:#eee;
+  font-weight:bold;
+}
+
+.tabs button.active{
+  background:#111;
+  color:white;
+}
+
+.input{
+  width:100%;
+  padding:13px;
+  margin-bottom:12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+}
+
+.main-btn{
+  width:100%;
+  padding:14px;
+  border-radius:11px;
+  background:#111;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* APP */
+#app{
+  display:none;
+}
+
+header{
+  background:#111;
+  color:white;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-title{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.balance-mini{
+  background:#292929;
+  padding:8px 12px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+.container{
+  max-width:700px;
+  margin:auto;
+  padding:18px;
+}
+
+.section-title{
+  margin:10px 0 15px;
+  font-size:22px;
+}
+
+.hero{
+  background:#111;
+  color:white;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#ccc;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#fafafa;
+}
+
+.card h3{
+  margin:10px 0 6px;
+  font-size:16px;
+}
+
+.price{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.buy{
+  width:100%;
+  padding:11px;
+  background:#111;
+  color:white;
+  border-radius:9px;
+  font-weight:bold;
+}
+
+/* DETAIL */
+.detail-box{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+}
+
+.detail-box img{
+  width:100%;
+  max-height:330px;
+  object-fit:contain;
+  background:#fafafa;
+  border-radius:14px;
+}
+
+.detail-price{
+  font-size:25px;
+  font-weight:bold;
+  margin:15px 0;
 }
 
 .qty{
- display:flex;
- justify-content:center;
- align-items:center;
- gap:18px;
- margin:16px 0;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin:15px 0;
 }
 
 .qty button{
- padding:8px 15px;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  background:#eee;
+  font-size:20px;
 }
 
-input,textarea{
- width:100%;
- padding:12px;
- margin:7px 0;
- border:1px solid #ccc;
- border-radius:9px;
- font-size:15px;
+.checkout-btn{
+  width:100%;
+  padding:14px;
+  border-radius:11px;
+  background:#111;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
 }
 
-.menu-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
- margin-top:15px;
+/* CHECKOUT */
+.form-box{
+  background:white;
+  padding:18px;
+  border-radius:18px;
 }
 
-.menu{
- background:white;
- border-radius:14px;
- padding:18px 10px;
- text-align:center;
- box-shadow:0 2px 8px #ddd;
- cursor:pointer;
+.form-box h2{
+  margin-bottom:15px;
 }
 
-.balance{
- background:#111;
- color:white;
- border-radius:15px;
- padding:20px;
- margin-bottom:15px;
+textarea.input{
+  resize:none;
+  height:90px;
 }
 
-.balance small{color:#bbb}
-.balance h2{margin:8px 0 0}
-
-.order,.transaction{
- background:white;
- margin:10px 0;
- padding:14px;
- border-radius:12px;
- box-shadow:0 2px 7px #ddd;
+/* PAYMENT */
+.payment-box{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
 }
 
-.notice{
- background:#fff4d6;
- border-radius:10px;
- padding:12px;
- font-size:13px;
- margin-bottom:15px;
+.payment-box img{
+  width:230px;
+  height:230px;
+  object-fit:contain;
+  margin:15px auto;
+  display:block;
+  border:1px solid #eee;
+  border-radius:12px;
 }
 
-.bottom{
- position:fixed;
- bottom:0;
- left:0;
- right:0;
- background:white;
- border-top:1px solid #ddd;
- display:flex;
- justify-content:space-around;
- padding:8px;
- z-index:10;
+.order-total{
+  background:#f3f3f3;
+  padding:14px;
+  border-radius:10px;
+  margin:15px 0;
+  font-weight:bold;
 }
 
-.bottom button{
- background:none;
- color:#111;
- padding:7px;
+.note{
+  color:#666;
+  font-size:13px;
+  line-height:1.5;
+  margin:12px 0;
 }
 
-.full{
- width:100%;
- margin-top:8px;
+.confirm-btn{
+  width:100%;
+  padding:14px;
+  background:#111;
+  color:white;
+  border-radius:10px;
+  font-weight:bold;
 }
 
-.secondary{
- background:#555;
+/* ORDERS */
+.order-card{
+  background:white;
+  padding:16px;
+  border-radius:15px;
+  margin-bottom:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
 }
 
-.success{
- background:#e8f7e8;
- padding:12px;
- border-radius:9px;
- margin-bottom:12px;
+.status{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#eee;
+  font-size:12px;
 }
 
-@media(max-width:400px){
- .grid{gap:9px}
- .card img{height:135px}
+/* BALANCE */
+.balance-card{
+  background:#111;
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+}
+
+.balance-number{
+  font-size:35px;
+  margin-top:8px;
+}
+
+.info-card{
+  background:white;
+  border-radius:17px;
+  padding:18px;
+  margin-bottom:15px;
+}
+
+.info-card h3{
+  margin-bottom:8px;
+}
+
+/* PROFILE */
+.profile-card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+}
+
+.profile-avatar{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#111;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.logout{
+  width:100%;
+  margin-top:18px;
+  padding:13px;
+  border-radius:10px;
+  background:#eee;
+  font-weight:bold;
+}
+
+/* NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:65px;
+  background:white;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:20;
+}
+
+.nav-btn{
+  background:none;
+  color:#777;
+  font-size:12px;
+  text-align:center;
+}
+
+.nav-btn span{
+  display:block;
+  font-size:21px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  color:#111;
+  font-weight:bold;
+}
+
+.back{
+  margin-bottom:15px;
+  background:#eee;
+  padding:9px 13px;
+  border-radius:9px;
+}
+
+/* MOBILE */
+@media(max-width:500px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .card img{
+    height:145px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= AUTH PAGE ================= -->
+
+<div id="authPage">
+
+  <div class="auth-box">
+
+    <div class="logo">Oreo Store</div>
+    <div class="auth-sub">Welcome to our store</div>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="showLogin()">Login</button>
+      <button id="registerTab" onclick="showRegister()">Register</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginForm">
+
+      <input
+        id="loginEmail"
+        class="input"
+        type="email"
+        placeholder="Email"
+      >
+
+      <input
+        id="loginPassword"
+        class="input"
+        type="password"
+        placeholder="Password"
+      >
+
+      <button class="main-btn" onclick="loginUser()">
+        Login
+      </button>
+
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerForm" class="hidden">
+
+      <input
+        id="regName"
+        class="input"
+        type="text"
+        placeholder="Full Name"
+      >
+
+      <input
+        id="regEmail"
+        class="input"
+        type="email"
+        placeholder="Email"
+      >
+
+      <input
+        id="regPassword"
+        class="input"
+        type="password"
+        placeholder="Password"
+      >
+
+      <button class="main-btn" onclick="registerUser()">
+        Create Account
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= APP ================= -->
+
+<div id="app">
+
 <header>
-<h1>🍪 Oreo Store</h1>
-<p>Cookie Products • Demo Store</p>
+
+  <div class="header-row">
+
+    <div class="header-title">
+      Oreo Store
+    </div>
+
+    <div class="balance-mini">
+      Balance: ₹<span id="miniBalance">0</span>
+    </div>
+
+  </div>
+
 </header>
 
-<div class="page">
 
-<!-- HOME -->
-<div id="home" class="container">
+<!-- ================= HOME ================= -->
 
-<h2>Our Products</h2>
+<section id="homePage" class="page">
 
-<div class="grid">
+  <div class="container">
 
-<div class="card">
-<img src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113139.png">
-<h3>Oreo Product 1</h3>
-<div class="price">₹150</div>
-<button class="buy" onclick="openProduct(0)">Buy Now</button>
+    <div class="hero">
+
+      <h1>Welcome 👋</h1>
+
+      <p>
+        Discover our products and place your order easily.
+      </p>
+
+    </div>
+
+    <h2 class="section-title">
+      Products
+    </h2>
+
+    <div id="productGrid" class="products"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRODUCT DETAIL ================= -->
+
+<section id="productPage" class="page hidden">
+
+  <div class="container">
+
+    <button class="back" onclick="showPage('homePage')">
+      ← Back
+    </button>
+
+    <div id="productDetail"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section id="checkoutPage" class="page hidden">
+
+  <div class="container">
+
+    <button class="back" onclick="showPage('productPage')">
+      ← Back
+    </button>
+
+    <div class="form-box">
+
+      <h2>Checkout</h2>
+
+      <input
+        id="customerName"
+        class="input"
+        placeholder="Your Name"
+      >
+
+      <input
+        id="customerPhone"
+        class="input"
+        type="tel"
+        placeholder="Mobile Number"
+      >
+
+      <textarea
+        id="customerAddress"
+        class="input"
+        placeholder="Delivery Address"
+      ></textarea>
+
+      <div id="checkoutSummary"></div>
+
+      <button class="checkout-btn" onclick="openPayment()">
+        Continue to Payment
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PAYMENT ================= -->
+
+<section id="paymentPage" class="page hidden">
+
+  <div class="container">
+
+    <button class="back" onclick="showPage('checkoutPage')">
+      ← Back
+    </button>
+
+    <div class="payment-box">
+
+      <h2>Payment</h2>
+
+      <p class="note">
+        Scan the QR code below to pay for your product order.
+      </p>
+
+      <!--
+        REPLACE YOUR_QR_IMAGE_LINK
+        WITH YOUR OWN QR IMAGE RAW LINK.
+      -->
+
+      <img
+        src="YOUR_QR_IMAGE_LINK"
+        alt="Payment QR Code"
+      >
+
+      <div id="paymentTotal" class="order-total"></div>
+
+      <p class="note">
+        After making the payment, submit your order below.
+        Payment verification is handled separately.
+      </p>
+
+      <button
+        class="confirm-btn"
+        onclick="placeOrder()"
+      >
+        I Have Paid — Place Order
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ORDERS ================= -->
+
+<section id="ordersPage" class="page hidden">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      My Orders
+    </h2>
+
+    <div id="ordersList"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BALANCE ================= -->
+
+<section id="balancePage" class="page hidden">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Balance
+    </h2>
+
+    <div class="balance-card">
+
+      <div>Available Balance</div>
+
+      <div class="balance-number">
+        ₹<span id="balanceAmount">0</span>
+      </div>
+
+    </div>
+
+    <div class="info-card">
+
+      <h3>Order Payments</h3>
+
+      <p class="note">
+        Payments on this website are for product orders only.
+      </p>
+
+    </div>
+
+    <div id="transactions"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profilePage" class="page hidden">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Profile
+    </h2>
+
+    <div class="profile-card">
+
+      <div class="profile-avatar">
+        👤
+      </div>
+
+      <h2 id="profileName">
+        User
+      </h2>
+
+      <p id="profileEmail" class="note">
+        user@email.com
+      </p>
+
+      <button
+        class="logout"
+        onclick="logoutUser()"
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<div class="bottom-nav">
+
+  <button
+    class="nav-btn active"
+    onclick="showPage('homePage')"
+  >
+    <span>🏠</span>
+    Home
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="showPage('ordersPage');loadOrders()"
+  >
+    <span>📦</span>
+    Orders
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="showPage('balancePage');loadBalance()"
+  >
+    <span>💰</span>
+    Balance
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="showPage('profilePage');loadProfile()"
+  >
+    <span>👤</span>
+    Profile
+  </button>
+
 </div>
-
-<div class="card">
-<img src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113245.png">
-<h3>Oreo Product 2</h3>
-<div class="price">₹200</div>
-<button class="buy" onclick="openProduct(1)">Buy Now</button>
-</div>
-
-<div class="card">
-<img src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113328.png">
-<h3>Oreo Product 3</h3>
-<div class="price">₹350</div>
-<button class="buy" onclick="openProduct(2)">Buy Now</button>
-</div>
-
-<div class="card">
-<img src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113649.png">
-<h3>Oreo Product 4</h3>
-<div class="price">₹500</div>
-<button class="buy" onclick="openProduct(3)">Buy Now</button>
-</div>
-
-</div>
-
-<div class="menu-grid">
-
-<div class="menu" onclick="show('wallet')">
-💳<br><b>Recharge</b>
-</div>
-
-<div class="menu" onclick="show('withdraw')">
-💸<br><b>Withdrawal</b>
-</div>
-
-<div class="menu" onclick="showOrders()">
-📦<br><b>My Orders</b>
-</div>
-
-<div class="menu" onclick="show('history')">
-📋<br><b>History</b>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT DETAIL -->
-<div id="product" class="container hidden">
-
-<button class="back" onclick="show('home')">← Back</button>
-
-<div class="detail">
-
-<img id="detailImg">
-
-<h2 id="detailName"></h2>
-
-<div class="price" id="detailPrice"></div>
-
-<p>
-Delicious Oreo cookie product. This page is part of the demo store.
-</p>
-
-<div class="qty">
-<button onclick="changeQty(-1)">−</button>
-<span id="qty">1</span>
-<button onclick="changeQty(1)">+</button>
-</div>
-
-<button class="buy" onclick="checkout()">Buy Now</button>
-
-</div>
-</div>
-
-
-<!-- CHECKOUT -->
-<div id="checkout" class="container hidden">
-
-<button class="back" onclick="show('product')">← Back</button>
-
-<h2>Checkout</h2>
-
-<div class="detail">
-
-<input id="name" placeholder="Your Name">
-
-<input id="mobile" placeholder="Mobile Number">
-
-<textarea id="address" placeholder="Delivery Address"></textarea>
-
-<input id="city" placeholder="City">
-
-<input id="pin" placeholder="Pincode">
-
-<button class="buy" onclick="placeOrder()">
-Place Demo Order
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ORDERS -->
-<div id="orders" class="container hidden">
-
-<h2>📦 My Orders</h2>
-
-<div id="orderList"></div>
-
-</div>
-
-
-<!-- WALLET / RECHARGE -->
-<div id="wallet" class="container hidden">
-
-<button class="back" onclick="show('home')">← Back</button>
-
-<div class="balance">
-<small>Demo Balance</small>
-<h2>₹<span id="balance">0</span></h2>
-</div>
-
-<h2>💳 Recharge</h2>
-
-<div class="notice">
-This is a demo only. No real payment or money transfer is made.
-</div>
-
-<div class="detail">
-
-<input
-type="number"
-id="rechargeAmount"
-placeholder="Enter demo amount">
-
-<button class="full" onclick="demoRecharge()">
-Add Demo Balance
-</button>
-
-</div>
-
-</div>
-
-
-<!-- WITHDRAW -->
-<div id="withdraw" class="container hidden">
-
-<button class="back" onclick="show('home')">← Back</button>
-
-<h2>💸 Demo Withdrawal</h2>
-
-<div class="notice">
-Demo only — no real money will be transferred to any bank account or UPI ID.
-</div>
-
-<div class="detail">
-
-<input
-type="number"
-id="withdrawAmount"
-placeholder="Enter demo amount">
-
-<input
-id="withdrawMethod"
-placeholder="Demo withdrawal method">
-
-<button class="full" onclick="demoWithdraw()">
-Submit Demo Request
-</button>
-
-</div>
-
-</div>
-
-
-<!-- HISTORY -->
-<div id="history" class="container hidden">
-
-<button class="back" onclick="show('home')">← Back</button>
-
-<h2>📋 Transaction History</h2>
-
-<div id="transactionList"></div>
-
-</div>
-
-
-<!-- PROFILE -->
-<div id="profile" class="container hidden">
-
-<h2>👤 Profile</h2>
-
-<div class="detail">
-
-<p><b>Oreo Store Demo</b></p>
-
-<p>Demo shopping profile</p>
-
-<button class="full" onclick="showOrders()">
-My Orders
-</button>
-
-<button class="full secondary" onclick="show('history')">
-Transaction History
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- BOTTOM NAVIGATION -->
-
-<div class="bottom">
-
-<button onclick="show('home')">
-🏠<br>Home
-</button>
-
-<button onclick="showOrders()">
-📦<br>Orders
-</button>
-
-<button onclick="show('wallet')">
-💳<br>Wallet
-</button>
-
-<button onclick="show('profile')">
-👤<br>Profile
-</button>
 
 </div>
 
 
 <script>
 
-const products=[
+/* ================= PRODUCTS ================= */
 
-{
-name:"Oreo Product 1",
-price:50,
-img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113139.png"
-},
+const products = [
 
-{
-name:"Oreo Product 2",
-price:60,
-img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113245.png"
-},
+  {
+    name:"Oreo Product 1",
+    price:100,
+    img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113139.png"
+  },
 
-{
-name:"Oreo Product 3",
-price:70,
-img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113328.png"
-},
+  {
+    name:"Oreo Product 2",
+    price:200,
+    img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113245.png"
+  },
 
-{
-name:"Oreo Product 4",
-price:80,
-img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113649.png"
-}
+  {
+    name:"Oreo Product 3",
+    price:300,
+    img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113328.png"
+  },
+
+  {
+    name:"Oreo Product 4",
+    price:500,
+    img:"https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-113649.png"
+  }
 
 ];
 
-let selected=0;
-let quantity=1;
+
+let selectedProduct = null;
+let quantity = 1;
 
 
-/* PAGE SWITCH */
+/* ================= AUTH ================= */
 
-function show(id){
+function showLogin(){
 
-document.querySelectorAll(".container")
-.forEach(x=>x.classList.add("hidden"));
+  document.getElementById("loginForm")
+    .classList.remove("hidden");
 
-document.getElementById(id)
-.classList.remove("hidden");
+  document.getElementById("registerForm")
+    .classList.add("hidden");
 
-window.scrollTo(0,0);
+  document.getElementById("loginTab")
+    .classList.add("active");
 
-}
-
-
-/* PRODUCT */
-
-function openProduct(i){
-
-selected=i;
-
-quantity=1;
-
-document.getElementById("detailImg").src=
-products[i].img;
-
-document.getElementById("detailName").textContent=
-products[i].name;
-
-document.getElementById("detailPrice").textContent=
-"₹"+products[i].price;
-
-document.getElementById("qty").textContent=
-quantity;
-
-show("product");
+  document.getElementById("registerTab")
+    .classList.remove("active");
 
 }
 
 
-/* QUANTITY */
+function showRegister(){
 
-function changeQty(n){
+  document.getElementById("loginForm")
+    .classList.add("hidden");
 
-quantity=Math.max(1,quantity+n);
+  document.getElementById("registerForm")
+    .classList.remove("hidden");
 
-document.getElementById("qty").textContent=
-quantity;
+  document.getElementById("loginTab")
+    .classList.remove("active");
 
-}
-
-
-/* CHECKOUT */
-
-function checkout(){
-
-show("checkout");
+  document.getElementById("registerTab")
+    .classList.add("active");
 
 }
 
 
-/* ORDER */
+function registerUser(){
+
+  const name =
+    document.getElementById("regName").value.trim();
+
+  const email =
+    document.getElementById("regEmail").value.trim();
+
+  const password =
+    document.getElementById("regPassword").value;
+
+  if(!name || !email || !password){
+
+    alert("Please fill all fields.");
+    return;
+
+  }
+
+  localStorage.setItem(
+    "oreoUser",
+    JSON.stringify({
+      name:name,
+      email:email,
+      password:password
+    })
+  );
+
+  alert("Registration successful. Please login.");
+
+  showLogin();
+
+}
+
+
+function loginUser(){
+
+  const email =
+    document.getElementById("loginEmail").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const user =
+    JSON.parse(localStorage.getItem("oreoUser"));
+
+  if(!user){
+
+    alert("No account found. Please register first.");
+    showRegister();
+    return;
+
+  }
+
+  if(
+    email === user.email &&
+    password === user.password
+  ){
+
+    localStorage.setItem(
+      "oreoLoggedIn",
+      "true"
+    );
+
+    openApp();
+
+  }else{
+
+    alert("Incorrect email or password.");
+
+  }
+
+}
+
+
+function logoutUser(){
+
+  localStorage.removeItem("oreoLoggedIn");
+
+  document.getElementById("app").style.display="none";
+  document.getElementById("authPage").style.display="flex";
+
+}
+
+
+/* ================= APP ================= */
+
+function openApp(){
+
+  document.getElementById("authPage").style.display="none";
+  document.getElementById("app").style.display="block";
+
+  renderProducts();
+  updateBalance();
+  loadProfile();
+
+}
+
+
+function checkLogin(){
+
+  if(
+    localStorage.getItem("oreoLoggedIn")==="true"
+  ){
+
+    openApp();
+
+  }
+
+}
+
+
+/* ================= PRODUCTS ================= */
+
+function renderProducts(){
+
+  const grid =
+    document.getElementById("productGrid");
+
+  grid.innerHTML="";
+
+  products.forEach((product,index)=>{
+
+    grid.innerHTML += `
+
+      <div class="card">
+
+        <img
+          src="${product.img}"
+          alt="${product.name}"
+        >
+
+        <h3>${product.name}</h3>
+
+        <div class="price">
+          ₹${product.price}
+        </div>
+
+        <button
+          class="buy"
+          onclick="openProduct(${index})"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+function openProduct(index){
+
+  selectedProduct = products[index];
+  quantity = 1;
+
+  document.getElementById("productDetail").innerHTML = `
+
+    <div class="detail-box">
+
+      <img
+        src="${selectedProduct.img}"
+        alt="${selectedProduct.name}"
+      >
+
+      <h2 style="margin-top:15px;">
+        ${selectedProduct.name}
+      </h2>
+
+      <div class="detail-price">
+        ₹${selectedProduct.price}
+      </div>
+
+      <p class="note">
+        Genuine product order.
+      </p>
+
+      <div class="qty">
+
+        <button onclick="changeQty(-1)">
+          −
+        </button>
+
+        <strong id="qtyValue">
+          1
+        </strong>
+
+        <button onclick="changeQty(1)">
+          +
+        </button>
+
+      </div>
+
+      <button
+        class="checkout-btn"
+        onclick="goCheckout()"
+      >
+        Buy Now
+      </button>
+
+    </div>
+
+  `;
+
+  showPage("productPage");
+
+}
+
+
+function changeQty(change){
+
+  quantity += change;
+
+  if(quantity < 1){
+    quantity = 1;
+  }
+
+  document.getElementById("qtyValue")
+    .innerText = quantity;
+
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function goCheckout(){
+
+  const total =
+    selectedProduct.price * quantity;
+
+  document.getElementById("checkoutSummary")
+    .innerHTML = `
+
+      <div class="order-total">
+
+        ${selectedProduct.name}
+        × ${quantity}
+
+        <br><br>
+
+        Total: ₹${total}
+
+      </div>
+
+    `;
+
+  showPage("checkoutPage");
+
+}
+
+
+function openPayment(){
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  if(!name || !phone || !address){
+
+    alert("Please fill your delivery details.");
+    return;
+
+  }
+
+  const total =
+    selectedProduct.price * quantity;
+
+  document.getElementById("paymentTotal")
+    .innerHTML = `
+
+      ${selectedProduct.name}
+      × ${quantity}
+
+      <br>
+
+      Total Payable: ₹${total}
+
+    `;
+
+  showPage("paymentPage");
+
+}
+
+
+/* ================= ORDERS ================= */
 
 function placeOrder(){
 
-let name=
-document.getElementById("name").value.trim();
+  const name =
+    document.getElementById("customerName").value.trim();
 
-let mobile=
-document.getElementById("mobile").value.trim();
+  const phone =
+    document.getElementById("customerPhone").value.trim();
 
-let address=
-document.getElementById("address").value.trim();
+  const address =
+    document.getElementById("customerAddress").value.trim();
 
-if(!name||!mobile||!address){
+  const total =
+    selectedProduct.price * quantity;
 
-alert("Please fill Name, Mobile and Address.");
+  const order = {
 
-return;
+    id:
+      "ORD" +
+      Date.now(),
 
-}
+    product:
+      selectedProduct.name,
 
-let orders=
-JSON.parse(
-localStorage.getItem("oreoOrders")||"[]"
-);
+    quantity:
+      quantity,
 
-orders.push({
+    total:
+      total,
 
-product:products[selected].name,
+    name:
+      name,
 
-quantity:quantity,
+    phone:
+      phone,
 
-total:products[selected].price*quantity,
+    address:
+      address,
 
-date:new Date().toLocaleString()
+    status:
+      "Payment submitted",
 
-});
+    date:
+      new Date().toLocaleString()
 
-localStorage.setItem(
-"oreoOrders",
-JSON.stringify(orders)
-);
-
-alert("Demo order placed successfully!");
-
-showOrders();
-
-}
+  };
 
 
-/* ORDERS */
+  const orders =
+    JSON.parse(
+      localStorage.getItem("oreoOrders") || "[]"
+    );
 
-function showOrders(){
+  orders.unshift(order);
 
-show("orders");
+  localStorage.setItem(
+    "oreoOrders",
+    JSON.stringify(orders)
+  );
 
-let orders=
-JSON.parse(
-localStorage.getItem("oreoOrders")||"[]"
-);
+  alert(
+    "Order submitted successfully."
+  );
 
-let box=
-document.getElementById("orderList");
+  selectedProduct = null;
+  quantity = 1;
 
-if(orders.length===0){
-
-box.innerHTML="<p>No orders yet.</p>";
-
-return;
-
-}
-
-box.innerHTML=
-orders.map((o,i)=>`
-
-<div class="order">
-
-<b>Order #${i+1}</b>
-
-<p>${o.product}</p>
-
-<p>Quantity: ${o.quantity}</p>
-
-<p>Total: ₹${o.total}</p>
-
-<p>Status: ✅ Order Placed</p>
-
-<small>${o.date}</small>
-
-</div>
-
-`).join("");
+  showPage("ordersPage");
+  loadOrders();
 
 }
 
 
-/* BALANCE */
+function loadOrders(){
+
+  const list =
+    document.getElementById("ordersList");
+
+  const orders =
+    JSON.parse(
+      localStorage.getItem("oreoOrders") || "[]"
+    );
+
+  if(orders.length === 0){
+
+    list.innerHTML = `
+
+      <div class="info-card">
+        No orders yet.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  list.innerHTML="";
+
+  orders.forEach(order=>{
+
+    list.innerHTML += `
+
+      <div class="order-card">
+
+        <h3>${order.product}</h3>
+
+        <p>
+          Quantity: ${order.quantity}
+        </p>
+
+        <p>
+          Total: ₹${order.total}
+        </p>
+
+        <p>
+          ${order.date}
+        </p>
+
+        <span class="status">
+          ${order.status}
+        </span>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* ================= BALANCE ================= */
 
 function getBalance(){
 
-return Number(
-localStorage.getItem("demoBalance")||0
-);
+  return Number(
+    localStorage.getItem("oreoBalance") || "0"
+  );
 
 }
+
 
 function updateBalance(){
 
-document.getElementById("balance").textContent=
-getBalance();
+  const balance =
+    getBalance();
 
-}
+  document.getElementById("miniBalance")
+    .innerText = balance;
 
-updateBalance();
-
-
-/* DEMO RECHARGE */
-
-function demoRecharge(){
-
-let amount=
-Number(
-document.getElementById("rechargeAmount").value
-);
-
-if(!amount||amount<=0){
-
-alert("Enter a valid demo amount.");
-
-return;
-
-}
-
-let balance=
-getBalance()+amount;
-
-localStorage.setItem(
-"demoBalance",
-balance
-);
-
-addTransaction(
-"Demo Recharge",
-amount
-);
-
-document.getElementById("rechargeAmount").value="";
-
-updateBalance();
-
-alert(
-"Demo balance added: ₹"+amount+
-"\nNo real payment was made."
-);
-
-show("wallet");
+  document.getElementById("balanceAmount")
+    .innerText = balance;
 
 }
 
 
-/* DEMO WITHDRAW */
+function loadBalance(){
 
-function demoWithdraw(){
+  updateBalance();
 
-let amount=
-Number(
-document.getElementById("withdrawAmount").value
-);
+  const transactions =
+    document.getElementById("transactions");
 
-let method=
-document.getElementById("withdrawMethod").value.trim();
+  transactions.innerHTML = `
 
-if(!amount||amount<=0){
+    <div class="info-card">
 
-alert("Enter a valid demo amount.");
+      <h3>Account Information</h3>
 
-return;
+      <p class="note">
+        Your balance display is for account/store
+        information. Product payments are made
+        directly for orders.
+      </p>
 
-}
+    </div>
 
-if(!method){
-
-alert("Enter a demo withdrawal method.");
-
-return;
-
-}
-
-let balance=getBalance();
-
-if(amount>balance){
-
-alert("Demo balance is insufficient.");
-
-return;
-
-}
-
-let newBalance=
-balance-amount;
-
-localStorage.setItem(
-"demoBalance",
-newBalance
-);
-
-addTransaction(
-"Demo Withdrawal Request",
-amount
-);
-
-document.getElementById("withdrawAmount").value="";
-document.getElementById("withdrawMethod").value="";
-
-updateBalance();
-
-alert(
-"Demo withdrawal request created.\n"+
-"No real money was transferred."
-);
-
-show("withdraw");
+  `;
 
 }
 
 
-/* TRANSACTIONS */
+/* ================= PROFILE ================= */
 
-function addTransaction(type,amount){
+function loadProfile(){
 
-let list=
-JSON.parse(
-localStorage.getItem("demoTransactions")||"[]"
-);
-
-list.unshift({
-
-type:type,
-
-amount:amount,
-
-date:new Date().toLocaleString()
-
-});
-
-localStorage.setItem(
-"demoTransactions",
-JSON.stringify(list)
-);
-
-}
-
-
-function showHistory(){
-
-let list=
-JSON.parse(
-localStorage.getItem("demoTransactions")||"[]"
-);
-
-let box=
-document.getElementById("transactionList");
-
-if(list.length===0){
-
-box.innerHTML="<p>No transactions yet.</p>";
-
-return;
-
-}
-
-box.innerHTML=
-list.map(t=>`
-
-<div class="transaction">
-
-<b>${t.type}</b>
-
-<p>Amount: ₹${t.amount}</p>
-
-<small>${t.date}</small>
-
-</div>
-
-`).join("");
-
-}
-
-
-/* Refresh history when opened */
-
-document.querySelector(
-'button[onclick="show(\'history\')"]'
-)?.addEventListener(
-"click",
-showHistory
-);
-
-</script>
-
-</body>
-  </html>
+  const user =
+    JSON.pa
