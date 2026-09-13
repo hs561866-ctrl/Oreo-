@@ -19,81 +19,13 @@ body{
   padding-bottom:75px;
 }
 
-.hidden{display:none!important}
-
 button{
   border:0;
   cursor:pointer;
 }
 
-/* AUTH */
-#authPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:linear-gradient(135deg,#111,#444);
-}
-
-.auth-box{
-  width:100%;
-  max-width:390px;
-  background:#fff;
-  padding:28px 22px;
-  border-radius:20px;
-  box-shadow:0 10px 35px rgba(0,0,0,.3);
-}
-
-.logo{
-  text-align:center;
-  font-size:32px;
-  font-weight:bold;
-  margin-bottom:6px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#777;
-  margin-bottom:22px;
-}
-
-.tabs{
-  display:flex;
-  gap:8px;
-  margin-bottom:18px;
-}
-
-.tabs button{
-  flex:1;
-  padding:12px;
-  border-radius:10px;
-  background:#eee;
-  font-weight:bold;
-}
-
-.tabs button.active{
-  background:#111;
-  color:white;
-}
-
-.input{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  margin-bottom:12px;
-  outline:none;
-}
-
-.main-btn{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  background:#111;
-  color:#fff;
-  font-weight:bold;
-  font-size:16px;
+.hidden{
+  display:none!important;
 }
 
 /* HEADER */
@@ -253,6 +185,15 @@ header{
   margin-bottom:15px;
 }
 
+.input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin-bottom:12px;
+  outline:none;
+}
+
 textarea.input{
   height:90px;
   resize:none;
@@ -368,15 +309,6 @@ textarea.input{
   margin-bottom:14px;
 }
 
-.logout{
-  width:100%;
-  padding:13px;
-  border-radius:10px;
-  background:#eee;
-  margin-top:18px;
-  font-weight:bold;
-}
-
 /* NAV */
 .bottom-nav{
   position:fixed;
@@ -426,98 +358,11 @@ textarea.input{
 
 <body>
 
-<!-- ================= LOGIN / REGISTER ================= -->
-
-<div id="authPage">
-
-  <div class="auth-box">
-
-    <div class="logo">Oreo Store</div>
-    <div class="subtitle">Welcome to our store</div>
-
-    <div class="tabs">
-      <button id="loginTab"
-              class="active"
-              onclick="showLogin()">
-        Login
-      </button>
-
-      <button id="registerTab"
-              onclick="showRegister()">
-        Register
-      </button>
-    </div>
-
-    <!-- LOGIN -->
-
-    <div id="loginForm">
-
-      <input
-        id="loginEmail"
-        class="input"
-        type="email"
-        placeholder="Email"
-      >
-
-      <input
-        id="loginPassword"
-        class="input"
-        type="password"
-        placeholder="Password"
-      >
-
-      <button
-        class="main-btn"
-        onclick="loginUser()">
-        Login
-      </button>
-
-    </div>
-
-    <!-- REGISTER -->
-
-    <div id="registerForm" class="hidden">
-
-      <input
-        id="regName"
-        class="input"
-        type="text"
-        placeholder="Full Name"
-      >
-
-      <input
-        id="regEmail"
-        class="input"
-        type="email"
-        placeholder="Email"
-      >
-
-      <input
-        id="regPassword"
-        class="input"
-        type="password"
-        placeholder="Password"
-      >
-
-      <button
-        class="main-btn"
-        onclick="registerUser()">
-        Create Account
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
 <!-- ================= MAIN APP ================= -->
 
 <div id="app">
 
 <header>
-
   <div class="header-row">
 
     <div class="header-title">
@@ -529,11 +374,10 @@ textarea.input{
     </div>
 
   </div>
-
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="homePage" class="page">
 
@@ -563,7 +407,7 @@ textarea.input{
 </section>
 
 
-<!-- PRODUCT DETAIL -->
+<!-- ================= PRODUCT DETAIL ================= -->
 
 <section id="productPage" class="page hidden">
 
@@ -582,7 +426,7 @@ textarea.input{
 </section>
 
 
-<!-- CHECKOUT -->
+<!-- ================= CHECKOUT ================= -->
 
 <section id="checkoutPage" class="page hidden">
 
@@ -614,8 +458,7 @@ textarea.input{
       <textarea
         id="customerAddress"
         class="input"
-        placeholder="Delivery Address">
-      </textarea>
+        placeholder="Delivery Address"></textarea>
 
       <div
         id="checkoutSummary"
@@ -635,7 +478,7 @@ textarea.input{
 </section>
 
 
-<!-- PAYMENT / QR -->
+<!-- ================= PAYMENT ================= -->
 
 <section id="paymentPage" class="page hidden">
 
@@ -686,7 +529,7 @@ textarea.input{
 </section>
 
 
-<!-- ORDERS -->
+<!-- ================= ORDERS ================= -->
 
 <section id="ordersPage" class="page hidden">
 
@@ -703,7 +546,7 @@ textarea.input{
 </section>
 
 
-<!-- BALANCE -->
+<!-- ================= BALANCE ================= -->
 
 <section id="balancePage" class="page hidden">
 
@@ -741,7 +584,7 @@ textarea.input{
 </section>
 
 
-<!-- PROFILE -->
+<!-- ================= PROFILE ================= -->
 
 <section id="profilePage" class="page hidden">
 
@@ -757,20 +600,13 @@ textarea.input{
         👤
       </div>
 
-      <h2 id="profileName">
-        User
+      <h2>
+        Store Customer
       </h2>
 
-      <p
-        id="profileEmail"
-        class="note">
+      <p class="note">
+        Welcome to Oreo Store.
       </p>
-
-      <button
-        class="logout"
-        onclick="logoutUser()">
-        Logout
-      </button>
 
     </div>
 
@@ -779,7 +615,7 @@ textarea.input{
 </section>
 
 
-<!-- BOTTOM NAV -->
+<!-- ================= BOTTOM NAV ================= -->
 
 <div class="bottom-nav">
 
@@ -812,7 +648,7 @@ textarea.input{
 
   <button
     class="nav-btn"
-    onclick="showPage('profilePage');loadProfile()">
+    onclick="showPage('profilePage')">
 
     <span>👤</span>
     Profile
@@ -826,7 +662,7 @@ textarea.input{
 
 <script>
 
-/* ================= PRODUCT DATA ================= */
+/* ================= PRODUCTS ================= */
 
 const products = [
 
@@ -856,168 +692,18 @@ const products = [
 
 ];
 
-let selectedProduct=null;
-let quantity=1;
+let selectedProduct = null;
+let quantity = 1;
 
 
-/* ================= AUTH ================= */
-
-function showLogin(){
-
-  document
-    .getElementById("loginForm")
-    .classList.remove("hidden");
-
-  document
-    .getElementById("registerForm")
-    .classList.add("hidden");
-
-  document
-    .getElementById("loginTab")
-    .classList.add("active");
-
-  document
-    .getElementById("registerTab")
-    .classList.remove("active");
-
-}
-
-
-function showRegister(){
-
-  document
-    .getElementById("loginForm")
-    .classList.add("hidden");
-
-  document
-    .getElementById("registerForm")
-    .classList.remove("hidden");
-
-  document
-    .getElementById("loginTab")
-    .classList.remove("active");
-
-  document
-    .getElementById("registerTab")
-    .classList.add("active");
-
-}
-
-
-function registerUser(){
-
-  const name =
-    document.getElementById("regName").value.trim();
-
-  const email =
-    document.getElementById("regEmail").value.trim();
-
-  const password =
-    document.getElementById("regPassword").value;
-
-  if(!name || !email || !password){
-
-    alert("Please fill all fields.");
-    return;
-
-  }
-
-  localStorage.setItem(
-    "oreoUser",
-    JSON.stringify({
-      name:name,
-      email:email,
-      password:password
-    })
-  );
-
-  alert("Registration successful.");
-
-  showLogin();
-
-}
-
-
-function loginUser(){
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value;
-
-  const user =
-    JSON.parse(
-      localStorage.getItem("oreoUser")
-    );
-
-  if(!user){
-
-    alert("Please register first.");
-    showRegister();
-    return;
-
-  }
-
-  if(
-    email===user.email &&
-    password===user.password
-  ){
-
-    localStorage.setItem(
-      "oreoLoggedIn",
-      "true"
-    );
-
-    openApp();
-
-  }else{
-
-    alert("Incorrect email or password.");
-
-  }
-
-}
-
-
-function logoutUser(){
-
-  localStorage.removeItem("oreoLoggedIn");
-
-  document.getElementById("app")
-    .style.display="none";
-
-  document.getElementById("authPage")
-    .style.display="flex";
-
-}
-
-
-/* ================= APP ================= */
-
-function openApp(){
-
-  document.getElementById("authPage")
-    .style.display="none";
-
-  document.getElementById("app")
-    .style.display="block";
-
-  renderProducts();
-  updateBalance();
-  loadProfile();
-
-}
-
-
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCTS DISPLAY ================= */
 
 function renderProducts(){
 
   const grid =
     document.getElementById("productGrid");
 
-  grid.innerHTML="";
+  grid.innerHTML = "";
 
   products.forEach((product,index)=>{
 
@@ -1057,11 +743,11 @@ function renderProducts(){
 
 function openProduct(index){
 
-  selectedProduct=products[index];
-  quantity=1;
+  selectedProduct = products[index];
+  quantity = 1;
 
   document.getElementById("productDetail")
-    .innerHTML=`
+    .innerHTML = `
 
       <div class="detail-box">
 
@@ -1123,17 +809,17 @@ function changeQty(change){
 
   quantity += change;
 
-  if(quantity<1){
-    quantity=1;
+  if(quantity < 1){
+    quantity = 1;
   }
 
   document.getElementById("qtyValue")
-    .innerText=quantity;
+    .innerText = quantity;
 
   document.getElementById("detailTotal")
-    .innerText=
-      "Total: ₹"+
-      (selectedProduct.price*quantity);
+    .innerText =
+      "Total: ₹" +
+      (selectedProduct.price * quantity);
 
 }
 
@@ -1143,10 +829,10 @@ function changeQty(change){
 function goCheckout(){
 
   const total =
-    selectedProduct.price*quantity;
+    selectedProduct.price * quantity;
 
   document.getElementById("checkoutSummary")
-    .innerHTML=`
+    .innerHTML = `
 
       <strong>
         ${selectedProduct.name}
@@ -1197,10 +883,10 @@ function openPayment(){
   }
 
   const total =
-    selectedProduct.price*quantity;
+    selectedProduct.price * quantity;
 
   document.getElementById("paymentTotal")
-    .innerHTML=`
+    .innerHTML = `
 
       ${selectedProduct.name}
 
@@ -1234,11 +920,11 @@ function placeOrder(){
       .value.trim();
 
   const total =
-    selectedProduct.price*quantity;
+    selectedProduct.price * quantity;
 
-  const order={
+  const order = {
 
-    id:"ORD"+Date.now(),
+    id:"ORD" + Date.now(),
 
     product:selectedProduct.name,
 
@@ -1260,9 +946,9 @@ function placeOrder(){
 
   };
 
-  const orders=
+  const orders =
     JSON.parse(
-      localStorage.getItem("oreoOrders")||"[]"
+      localStorage.getItem("oreoOrders") || "[]"
     );
 
   orders.unshift(order);
@@ -1274,8 +960,8 @@ function placeOrder(){
 
   alert("Order submitted successfully.");
 
-  selectedProduct=null;
-  quantity=1;
+  selectedProduct = null;
+  quantity = 1;
 
   showPage("ordersPage");
 
@@ -1293,12 +979,12 @@ function loadOrders(){
 
   const orders =
     JSON.parse(
-      localStorage.getItem("oreoOrders")||"[]"
+      localStorage.getItem("oreoOrders") || "[]"
     );
 
-  if(orders.length===0){
+  if(orders.length === 0){
 
-    list.innerHTML=`
+    list.innerHTML = `
 
       <div class="info-card">
         No orders yet.
@@ -1310,7 +996,7 @@ function loadOrders(){
 
   }
 
-  list.innerHTML="";
+  list.innerHTML = "";
 
   orders.forEach(order=>{
 
@@ -1340,37 +1026,58 @@ function loadOrders(){
 
         <span class="status">
           ${order.status}
-        </span>    `;
+        </span>
 
-  }
+      </div>
+
+    `;
+
+  });
+
+}
+
 
 /* ================= BALANCE ================= */
 
-function updateBalance(){
-
-  document.getElementById("miniBalance")
-    .innerText="0";
-
-  document.getElementById("balanceAmount")
-    .innerText="0";
-
-}
-
-
 function loadBalance(){
 
-  updateBalance();
+  document.getElementById("miniBalance")
+    .innerText = "0";
+
+  document.getElementById("balanceAmount")
+    .innerText = "0";
 
 }
 
 
-/* ================= PROFILE ================= */
+/* ================= PAGE NAVIGATION ================= */
 
-function loadProfile(){
+function showPage(pageId){
 
-  const user =
-    JSON.parse(
-      localStorage.getItem("oreoUser")
-    );
+  document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+      page.classList.add("hidden");
+    });
 
-  if(!user) ret. 
+  document
+    .getElementById(pageId)
+    .classList.remove("hidden");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= START ================= */
+
+renderProducts();
+loadBalance();
+
+</script>
+
+</body>
+  </html>
