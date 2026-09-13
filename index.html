@@ -28,7 +28,8 @@ button{
   cursor:pointer;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
   background:#111;
   color:#fff;
@@ -58,7 +59,8 @@ header{
   font-size:13px;
 }
 
-/* COMMON */
+/* ================= COMMON ================= */
+
 .container{
   max-width:700px;
   margin:auto;
@@ -86,7 +88,8 @@ header{
   color:#ccc;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
+
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -128,14 +131,48 @@ header{
   font-weight:bold;
 }
 
-/* DETAIL */
+/* ================= PRODUCT PAYMENT ================= */
+
+.product-payment{
+  background:#fff;
+  padding:20px;
+  border-radius:18px;
+  margin-top:18px;
+  text-align:center;
+}
+
+.product-payment h2{
+  margin-bottom:8px;
+}
+
+.product-payment img{
+  width:240px;
+  height:240px;
+  object-fit:contain;
+  margin:18px auto;
+  display:block;
+  border:1px solid #ddd;
+  border-radius:12px;
+}
+
+.payment-total{
+  background:#f2f2f2;
+  padding:14px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+/* ================= DETAIL ================= */
+
 .detail-box{
   background:#fff;
   padding:18px;
   border-radius:18px;
 }
 
-.detail-box img{
+.detail-box > img{
   width:100%;
   height:320px;
   object-fit:contain;
@@ -152,6 +189,7 @@ header{
 .qty{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:18px;
   margin:18px 0;
 }
@@ -174,7 +212,8 @@ header{
   font-weight:bold;
 }
 
-/* FORMS */
+/* ================= FORMS ================= */
+
 .form-box{
   background:#fff;
   padding:18px;
@@ -202,50 +241,8 @@ header{
   line-height:1.7;
 }
 
-/* PAYMENT */
-.payment-box{
-  background:#fff;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-}
+/* ================= ORDERS ================= */
 
-.qr{
-  width:240px;
-  height:240px;
-  object-fit:contain;
-  margin:18px auto;
-  display:block;
-  border:1px solid #ddd;
-  border-radius:12px;
-}
-
-.payment-total{
-  background:#f2f2f2;
-  padding:14px;
-  border-radius:10px;
-  font-size:18px;
-  font-weight:bold;
-  margin:15px 0;
-}
-
-.note{
-  color:#666;
-  font-size:13px;
-  line-height:1.5;
-  margin:10px 0;
-}
-
-.confirm{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  background:#111;
-  color:#fff;
-  font-weight:bold;
-}
-
-/* ORDERS */
 .order-card{
   background:#fff;
   padding:16px;
@@ -267,7 +264,8 @@ header{
   font-size:12px;
 }
 
-/* BALANCE */
+/* ================= BALANCE ================= */
+
 .balance-card{
   background:#111;
   color:#fff;
@@ -288,29 +286,43 @@ header{
   margin-bottom:14px;
 }
 
-/* WALLET OPTIONS */
-.wallet-options{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin-bottom:18px;
+.note{
+  color:#666;
+  font-size:13px;
+  line-height:1.5;
+  margin:10px 0;
 }
 
-.wallet-btn{
+/* ================= RECHARGE ================= */
+
+.recharge-box{
   background:#fff;
-  padding:20px 10px;
-  border-radius:16px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  padding:20px;
+  border-radius:18px;
   text-align:center;
-  font-weight:bold;
-  font-size:15px;
 }
 
-.wallet-icon{
-  display:block;
-  font-size:30px;
+.recharge-box h2{
   margin-bottom:8px;
 }
+
+.recharge-box .qr{
+  width:240px;
+  height:240px;
+  object-fit:contain;
+  margin:18px auto;
+  display:block;
+  border:1px solid #ddd;
+  border-radius:12px;
+}
+
+.recharge-amount{
+  font-size:18px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+/* ================= WITHDRAWAL ================= */
 
 .withdraw-box{
   background:#fff;
@@ -327,7 +339,8 @@ header{
   font-weight:bold;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
+
 .profile-card{
   background:#fff;
   padding:22px;
@@ -347,7 +360,31 @@ header{
   margin-bottom:14px;
 }
 
-/* NAV */
+/* ================= SEPARATE SECTIONS ================= */
+
+.quick-section{
+  background:#fff;
+  padding:18px;
+  border-radius:18px;
+  margin-top:22px;
+}
+
+.quick-section h2{
+  margin-bottom:8px;
+}
+
+.quick-btn{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  font-weight:bold;
+}
+
+/* ================= NAV ================= */
+
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -386,10 +423,18 @@ header{
   margin-bottom:15px;
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:500px){
+
   .card img{
     height:145px;
   }
+
+  .container{
+    padding:15px;
+  }
+
 }
 </style>
 </head>
@@ -398,65 +443,163 @@ header{
 
 <div id="app">
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
+
 <header>
+
   <div class="header-row">
-    <div class="header-title">Oreo Store</div>
+
+    <div class="header-title">
+      Oreo Store
+    </div>
 
     <div class="balance-mini">
       Balance: ₹<span id="miniBalance">0</span>
     </div>
+
   </div>
+
 </header>
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+     ===================================================== -->
+
 <section id="homePage" class="page">
 
   <div class="container">
 
     <div class="hero">
+
       <h1>Welcome 👋</h1>
-      <p>Choose a product and place your order.</p>
+
+      <p>
+        Choose a product and place your order.
+      </p>
+
     </div>
 
-    <h2 class="section-title">Products</h2>
 
-    <div id="productGrid" class="products"></div>
+    <h2 class="section-title">
+      Products
+    </h2>
+
+
+    <div
+      id="productGrid"
+      class="products">
+    </div>
+
+
+    <!-- SEPARATE RECHARGE SECTION -->
+
+    <div class="quick-section">
+
+      <h2>
+        Recharge
+      </h2>
+
+      <p class="note">
+        Open the recharge section to view payment details.
+      </p>
+
+      <button
+        class="quick-btn"
+        onclick="showPage('rechargePage')">
+
+        Recharge
+
+      </button>
+
+    </div>
+
+
+    <!-- SEPARATE WITHDRAWAL SECTION -->
+
+    <div class="quick-section">
+
+      <h2>
+        Withdrawal
+      </h2>
+
+      <p class="note">
+        Open the withdrawal section to submit a request.
+      </p>
+
+      <button
+        class="quick-btn"
+        onclick="showPage('withdrawPage')">
+
+        Withdrawal
+
+      </button>
+
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- PRODUCT DETAIL -->
+<!-- =====================================================
+     PRODUCT DETAIL + QR
+     ===================================================== -->
+
 <section id="productPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('homePage')">
+    <button
+      class="back"
+      onclick="showPage('homePage')">
+
       ← Back
+
     </button>
 
+
     <div id="productDetail"></div>
+
+
+    <!-- QR APPEARS FOR EVERY PRODUCT -->
+
+    <div
+      id="productQR"
+      class="product-payment">
+
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- CHECKOUT -->
+<!-- =====================================================
+     CHECKOUT
+     ===================================================== -->
+
 <section id="checkoutPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('productPage')">
+    <button
+      class="back"
+      onclick="showPage('productPage')">
+
       ← Back
+
     </button>
+
 
     <div class="form-box">
 
-      <h2>Place Order</h2>
+      <h2>
+        Place Order
+      </h2>
+
+
+      <!-- ONLY NAME -->
 
       <input
         id="customerName"
@@ -464,12 +607,19 @@ header{
         placeholder="Your Name"
       >
 
-      <div id="checkoutSummary" class="summary"></div>
+
+      <div
+        id="checkoutSummary"
+        class="summary">
+      </div>
+
 
       <button
         class="action-btn"
         onclick="openPayment()">
-        Place Order
+
+        Continue to Payment
+
       </button>
 
     </div>
@@ -479,39 +629,53 @@ header{
 </section>
 
 
-<!-- PRODUCT PAYMENT -->
+<!-- =====================================================
+     PAYMENT
+     ===================================================== -->
+
 <section id="paymentPage" class="page hidden">
 
   <div class="container">
 
-    <button class="back" onclick="showPage('checkoutPage')">
+    <button
+      class="back"
+      onclick="showPage('checkoutPage')">
+
       ← Back
+
     </button>
 
-    <div class="payment-box">
 
-      <h2>Payment</h2>
+    <div class="product-payment">
+
+      <h2>
+        Payment
+      </h2>
+
 
       <p class="note">
         Scan the QR code to pay for your product order.
       </p>
 
+
       <img
-        class="qr"
         src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-124821.png"
-        alt="Payment QR Code"
+        alt="Payment QR"
       >
 
-      <div id="paymentTotal" class="payment-total"></div>
 
-      <p class="note">
-        Please make the payment for the order amount shown above.
-      </p>
+      <div
+        id="paymentTotal"
+        class="payment-total">
+      </div>
+
 
       <button
         class="confirm"
         onclick="placeOrder()">
+
         I Have Paid — Place Order
+
       </button>
 
     </div>
@@ -521,7 +685,10 @@ header{
 </section>
 
 
-<!-- ORDERS -->
+<!-- =====================================================
+     ORDERS
+     ===================================================== -->
+
 <section id="ordersPage" class="page hidden">
 
   <div class="container">
@@ -530,6 +697,7 @@ header{
       My Orders
     </h2>
 
+
     <div id="ordersList"></div>
 
   </div>
@@ -537,7 +705,10 @@ header{
 </section>
 
 
-<!-- BALANCE -->
+<!-- =====================================================
+     BALANCE
+     ===================================================== -->
+
 <section id="balancePage" class="page hidden">
 
   <div class="container">
@@ -546,9 +717,13 @@ header{
       Balance
     </h2>
 
+
     <div class="balance-card">
 
-      <div>Available Balance</div>
+      <div>
+        Available Balance
+      </div>
+
 
       <div class="balance-number">
         ₹<span id="balanceAmount">0</span>
@@ -556,37 +731,15 @@ header{
 
     </div>
 
-    <!-- RECHARGE / WITHDRAWAL OPTIONS -->
-
-    <div class="wallet-options">
-
-      <button
-        class="wallet-btn"
-        onclick="showPage('rechargePage')">
-
-        <span class="wallet-icon">💳</span>
-        Recharge
-
-      </button>
-
-      <button
-        class="wallet-btn"
-        onclick="showPage('withdrawPage')">
-
-        <span class="wallet-icon">💸</span>
-        Withdrawal
-
-      </button>
-
-    </div>
 
     <div class="info-card">
 
-      <h3>Payment Information</h3>
+      <h3>
+        Balance Information
+      </h3>
 
       <p class="note">
-        Product payments are made for individual orders
-        through the payment section.
+        Your current displayed balance is ₹0.
       </p>
 
     </div>
@@ -596,24 +749,34 @@ header{
 </section>
 
 
-<!-- RECHARGE -->
+<!-- =====================================================
+     RECHARGE — SEPARATE SECTION
+     ===================================================== -->
+
 <section id="rechargePage" class="page hidden">
 
   <div class="container">
 
     <button
       class="back"
-      onclick="showPage('balancePage')">
+      onclick="showPage('homePage')">
+
       ← Back
+
     </button>
 
-    <div class="payment-box">
 
-      <h2>Recharge</h2>
+    <div class="recharge-box">
+
+      <h2>
+        Recharge
+      </h2>
+
 
       <p class="note">
         Scan the QR code for payment.
       </p>
+
 
       <img
         class="qr"
@@ -621,9 +784,15 @@ header{
         alt="Recharge QR Code"
       >
 
+
+      <div class="recharge-amount">
+        Payment QR
+      </div>
+
+
       <p class="note">
-        Recharge payments are not automatically credited
-        to the displayed balance.
+        Payments are not automatically credited to the
+        displayed balance.
       </p>
 
     </div>
@@ -633,24 +802,34 @@ header{
 </section>
 
 
-<!-- WITHDRAWAL -->
+<!-- =====================================================
+     WITHDRAWAL — SEPARATE SECTION
+     ===================================================== -->
+
 <section id="withdrawPage" class="page hidden">
 
   <div class="container">
 
     <button
       class="back"
-      onclick="showPage('balancePage')">
+      onclick="showPage('homePage')">
+
       ← Back
+
     </button>
+
 
     <div class="withdraw-box">
 
-      <h2>Withdrawal</h2>
+      <h2>
+        Withdrawal
+      </h2>
+
 
       <p class="note">
         Available Balance: ₹<span id="withdrawBalance">0</span>
       </p>
+
 
       <input
         id="withdrawAmount"
@@ -660,21 +839,25 @@ header{
         placeholder="Enter Amount"
       >
 
+
       <input
         id="withdrawMethod"
         class="input"
         placeholder="UPI ID / Payment Details"
       >
 
+
       <button
         class="withdraw-btn"
         onclick="requestWithdrawal()">
+
         Submit Withdrawal Request
+
       </button>
 
+
       <p class="note">
-        Withdrawal processing is not connected to a real
-        money-transfer system.
+        This interface does not process or transfer real money.
       </p>
 
     </div>
@@ -684,7 +867,10 @@ header{
 </section>
 
 
-<!-- PROFILE -->
+<!-- =====================================================
+     PROFILE
+     ===================================================== -->
+
 <section id="profilePage" class="page hidden">
 
   <div class="container">
@@ -693,15 +879,18 @@ header{
       Profile
     </h2>
 
+
     <div class="profile-card">
 
       <div class="avatar">
         👤
       </div>
 
+
       <h2>
         Store Customer
       </h2>
+
 
       <p class="note">
         Welcome to Oreo Store.
@@ -714,35 +903,49 @@ header{
 </section>
 
 
-<!-- BOTTOM NAV -->
+<!-- =====================================================
+     BOTTOM NAV
+     ===================================================== -->
+
 <div class="bottom-nav">
 
   <button
     class="nav-btn active"
     onclick="setActiveNav(this);showPage('homePage')">
+
     <span>🏠</span>
     Home
+
   </button>
+
 
   <button
     class="nav-btn"
     onclick="setActiveNav(this);showPage('ordersPage');loadOrders()">
+
     <span>📦</span>
     Orders
+
   </button>
+
 
   <button
     class="nav-btn"
     onclick="setActiveNav(this);showPage('balancePage');loadBalance()">
+
     <span>💰</span>
     Balance
+
   </button>
+
 
   <button
     class="nav-btn"
     onclick="setActiveNav(this);showPage('profilePage')">
+
     <span>👤</span>
     Profile
+
   </button>
 
 </div>
@@ -752,7 +955,9 @@ header{
 
 <script>
 
-/* ================= PRODUCTS ================= */
+/* =====================================================
+   PRODUCT DATA
+   ===================================================== */
 
 const products = [
 
@@ -782,11 +987,14 @@ const products = [
 
 ];
 
+
 let selectedProduct = null;
 let quantity = 1;
 
 
-/* ================= RENDER PRODUCTS ================= */
+/* =====================================================
+   RENDER PRODUCTS
+   ===================================================== */
 
 function renderProducts(){
 
@@ -794,6 +1002,7 @@ function renderProducts(){
     document.getElementById("productGrid");
 
   grid.innerHTML = "";
+
 
   products.forEach((product,index)=>{
 
@@ -831,13 +1040,17 @@ function renderProducts(){
 }
 
 
-/* ================= PRODUCT DETAIL ================= */
+/* =====================================================
+   OPEN PRODUCT
+   QR IS SHOWN IMMEDIATELY
+   ===================================================== */
 
 function openProduct(index){
 
   selectedProduct = products[index];
 
   quantity = 1;
+
 
   document.getElementById("productDetail")
     .innerHTML = `
@@ -861,21 +1074,31 @@ function openProduct(index){
           Product price: ₹${selectedProduct.price}
         </p>
 
+
         <div class="qty">
 
-          <button onclick="changeQty(-1)">
+          <button
+            onclick="changeQty(-1)">
+
             −
+
           </button>
+
 
           <strong id="qtyValue">
             1
           </strong>
 
-          <button onclick="changeQty(1)">
+
+          <button
+            onclick="changeQty(1)">
+
             +
+
           </button>
 
         </div>
+
 
         <div
           id="detailTotal"
@@ -885,11 +1108,12 @@ function openProduct(index){
 
         </div>
 
+
         <button
           class="action-btn"
           onclick="goCheckout()">
 
-          Buy Now
+          Continue to Checkout
 
         </button>
 
@@ -897,38 +1121,91 @@ function openProduct(index){
 
     `;
 
+
+  /* QR FOR EVERY PRODUCT */
+
+  document.getElementById("productQR")
+    .innerHTML = `
+
+      <h2>
+        Pay for ${selectedProduct.name}
+      </h2>
+
+      <p class="note">
+        Scan the QR code for this product.
+      </p>
+
+      <img
+        src="https://github.com/hs561866-ctrl/Oreo-/raw/refs/heads/main/Screenshot_20260913-124821.png"
+        alt="Product Payment QR"
+      >
+
+      <div
+        id="productQRTotal"
+        class="payment-total">
+
+        Payable Amount: ₹${selectedProduct.price}
+
+      </div>
+
+    `;
+
+
   showPage("productPage");
 
 }
 
 
-/* ================= QUANTITY ================= */
+/* =====================================================
+   QUANTITY
+   ===================================================== */
 
 function changeQty(change){
 
   quantity += change;
 
+
   if(quantity < 1){
     quantity = 1;
   }
 
+
   document.getElementById("qtyValue")
     .innerText = quantity;
 
+
+  const total =
+    selectedProduct.price * quantity;
+
+
   document.getElementById("detailTotal")
     .innerText =
-      "Total: ₹" +
-      (selectedProduct.price * quantity);
+      "Total: ₹" + total;
+
+
+  const qrTotal =
+    document.getElementById("productQRTotal");
+
+
+  if(qrTotal){
+
+    qrTotal.innerText =
+      "Payable Amount: ₹" + total;
+
+  }
 
 }
 
 
-/* ================= CHECKOUT ================= */
+/* =====================================================
+   CHECKOUT
+   ===================================================== */
 
 function goCheckout(){
 
   const total =
     selectedProduct.price * quantity;
+
 
   document.getElementById("checkoutSummary")
     .innerHTML = `
@@ -953,18 +1230,22 @@ function goCheckout(){
 
     `;
 
+
   showPage("checkoutPage");
 
 }
 
 
-/* ================= PAYMENT ================= */
+/* =====================================================
+   PAYMENT
+   ===================================================== */
 
 function openPayment(){
 
   const name =
     document.getElementById("customerName")
       .value.trim();
+
 
   if(!name){
 
@@ -974,8 +1255,10 @@ function openPayment(){
 
   }
 
+
   const total =
     selectedProduct.price * quantity;
+
 
   document.getElementById("paymentTotal")
     .innerHTML = `
@@ -990,12 +1273,15 @@ function openPayment(){
 
     `;
 
+
   showPage("paymentPage");
 
 }
 
 
-/* ================= PLACE ORDER ================= */
+/* =====================================================
+   PLACE ORDER
+   ===================================================== */
 
 function placeOrder(){
 
@@ -1003,12 +1289,15 @@ function placeOrder(){
     return;
   }
 
+
   const name =
     document.getElementById("customerName")
       .value.trim();
 
+
   const total =
     selectedProduct.price * quantity;
+
 
   const order = {
 
@@ -1054,11 +1343,15 @@ function placeOrder(){
   );
 
 
-  alert("Order submitted successfully.");
+  alert(
+    "Order submitted successfully."
+  );
 
 
   selectedProduct = null;
+
   quantity = 1;
+
 
   document.getElementById("customerName")
     .value = "";
@@ -1071,181 +1364,4 @@ function placeOrder(){
 }
 
 
-/* ================= ORDERS ================= */
-
-function loadOrders(){
-
-  const list =
-    document.getElementById("ordersList");
-
-  const orders =
-    JSON.parse(
-      localStorage.getItem("oreoOrders") || "[]"
-    );
-
-
-  if(orders.length === 0){
-
-    list.innerHTML = `
-
-      <div class="info-card">
-        No orders yet.
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  list.innerHTML = "";
-
-
-  orders.forEach(order=>{
-
-    list.innerHTML += `
-
-      <div class="order-card">
-
-        <h3>
-          ${order.product}
-        </h3>
-
-        <p>
-          Quantity: ${order.quantity}
-        </p>
-
-        <p>
-          Price: ₹${order.price}
-        </p>
-
-        <p>
-          Total: ₹${order.total}
-        </p>
-
-        <p>
-          Customer: ${order.name}
-        </p>
-
-        <p>
-          ${order.date}
-        </p>
-
-        <span class="status">
-          ${order.status}
-        </span>
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-/* ================= BALANCE ================= */
-
-function loadBalance(){
-
-  document.getElementById("miniBalance")
-    .innerText = "0";
-
-  document.getElementById("balanceAmount")
-    .innerText = "0";
-
-  document.getElementById("withdrawBalance")
-    .innerText = "0";
-
-}
-
-
-/* ================= WITHDRAWAL UI ================= */
-
-function requestWithdrawal(){
-
-  const amount =
-    document.getElementById("withdrawAmount")
-      .value.trim();
-
-  const method =
-    document.getElementById("withdrawMethod")
-      .value.trim();
-
-  if(!amount || !method){
-
-    alert("Please fill all withdrawal details.");
-
-    return;
-
-  }
-
-  alert(
-    "Withdrawal request interface submitted. " +
-    "No real-money transfer has been processed."
-  );
-
-}
-
-
-/* ================= PAGE NAVIGATION ================= */
-
-function showPage(pageId){
-
-  document
-    .querySelectorAll(".page")
-    .forEach(page=>{
-
-      page.classList.add("hidden");
-
-    });
-
-
-  document
-    .getElementById(pageId)
-    .classList.remove("hidden");
-
-
-  if(pageId === "withdrawPage"){
-    loadBalance();
-  }
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ================= ACTIVE NAV ================= */
-
-function setActiveNav(button){
-
-  document
-    .querySelectorAll(".nav-btn")
-    .forEach(btn=>{
-
-      btn.classList.remove("active");
-
-    });
-
-  button.classList.add("active");
-
-}
-
-
-/* ================= START ================= */
-
-renderProducts();
-
-loadBalance();
-
-showPage("homePage");
-
-</script>
-
-</body>
-  </html>
+/*
